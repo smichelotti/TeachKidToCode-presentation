@@ -1,0 +1,17 @@
+TextWindow.Write("Enter first number: ")
+num1 = TextWindow.ReadNumber()
+TextWindow.Write("Enter second number: ")
+num2 = TextWindow.ReadNumber()
+TextWindow.Write("Do you want to add, subtract, divide, or multiply (a/s/m/d)? ")
+operation = TextWindow.Read()
+
+TextWindow.Write("The answer is: ")
+If operation = "a" Then
+  TextWindow.WriteLine(num1 + num2)
+ElseIf operation = "s" then
+  TextWindow.WriteLine(num1 - num2)
+ElseIf operation = "m" then
+  TextWindow.WriteLine(num1 * num2)
+ElseIf operation = "d" then
+  TextWindow.WriteLine(num1 / num2)
+EndIf

@@ -1,0 +1,6 @@
+GraphicsWindow.MouseDown = MouseClick
+Turtle.Speed = 9
+
+Sub MouseClick
+  Turtle.MoveTo(GraphicsWindow.MouseX, GraphicsWindow.MouseY)
+EndSub

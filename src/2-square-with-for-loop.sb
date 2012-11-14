@@ -1,0 +1,8 @@
+Turtle.Show()
+Turtle.Speed = 9
+GraphicsWindow.PenWidth = 25
+For i = 1 To 4
+  GraphicsWindow.PenColor = GraphicsWindow.GetRandomColor()
+  Turtle.Move(100)
+  Turtle.TurnLeft()
+EndFor

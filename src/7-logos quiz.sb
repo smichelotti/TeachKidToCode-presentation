@@ -1,0 +1,72 @@
+GraphicsWindow.Title = " Cars Logo Quiz"
+logos[1] = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQsOZ_8hUgKDG9e2dT_oDktYewxekOmribire6HaymODhHKtRk3"
+logos[2] = "http://www.webdesign.org/img_articles/3175/9.jpg"
+logos[3] = "http://images.sodahead.com/polls/001002887/20070514_toyota_logo_answer_5_xlarge.jpeg"
+logos[4] = "http://www.cadillacfaq.com/faq/answers/logos/cadillac-thum.jpg"
+logos[5] = "http://www.motorstown.com/images/honda-logo-01.jpg"
+logos[6] = "http://allworldcars.com/wordpress/wp-content/uploads/2009/12/infiniti_logo.png"
+logos[7] = "http://www.republicofcode.com/tutorials/photoshop/volkswagen/17.gif"
+logos[8] = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR9OLkHIVDnt1k1xNifW1loyb7k9othY1Zy8vGs1vdPxkx6SQAz2A"
+logos[9] = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSuF3trz67CASySyJLFBvmtBe3uafSs478QOG_8QN5MWfimC8RN1g"
+logos[10] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShnZbJmpnCMQghvngcEpEAJ7ySkFjoCzndXiepY7ymv7y3MO5cXg"
+logos[11] = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQQ3tN-_XhevY8Q3EDYQhx5jjMkVNoeZB6vpTzPKnyiikSO1KUYRQ"
+logos[12] = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSVYNLNfI1KnebWQc2ERZg1YCTVHExBUA3az_0L4KKjAIuymRJ9"
+logos[13] = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTuoGQ2wgbAym1maUHlh27GRx2ILyBN1Qxmhlq5DNNJ8GcKFt4ctQ"
+logos[14] = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRI-g8Y5UHGAEqh_SSQm1_k4ESTH5S1rpowhvpuvFO_ibGTlvlJtQ"
+logos[15] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNrJi6OF1MwN5ltvP966uxkIt8HYTJbruwJsBqvoqs-Ox3Z0ad9A"
+logos[16] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxyAHQf8El2CgfhtMUc4ELfS82xcgnNISeupoVAx7JdjLxfS3IRQ"
+logos[17] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjc9hI3FjPFWMVAukSaADeQ0XiO1pxG5y4ZV07FFwc9_LKSJ9IsA"
+logos[18] = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTK6pOUzn6qa7wtBwqUsgxkIhREr2ZI7jt-C5tBuYgIZZ_vrvYj"
+logos[19] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxllaInfcAoC_z4nAd48gcIl9f12EKoF8rYG0JyI6Yw5aqG8p4"
+logos[20] = "http://www.cipherauto.com/images/manufacturers/saturn_logo.jpg"
+logos[21] = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcREOiVZDOUPavxVWAZhlSMIa9nCsAq6qmNVV8gupKkAvPEmg2hTAw"
+logos[22] = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSji32E-m357ICtuzQb_wSKJYC4Fwb_TttnzcvAHwc_KndltIa6OQ"
+logos[23] = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTEREuHoKXHzXA_135kiX7Sh9B4P4U8nfHg2qgXgrWWVhhZssbyDw"
+logos[24] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5GQ_7YkVsTGjN7xZH5UwXHdiqsOWgx4XV3XhnaQBebL5qOrWE"
+logos[25] = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSRjTJSBmtgSH2AhensOtOM6zL0NFgvB-qe11ZY3MIz0ZmiWLeRNQ"
+answers[1] = "mitsubishi"
+answers[2] = "audi"
+answers[3] = "toyota"
+answers[4] = "cadillac"
+answers[5] = "honda"
+answers[6] = "infiniti"
+answers[7] = "volkswagon"
+answers[8] = "mazda"
+answers[9] = "mustang"
+answers[10] = "subaru"
+answers[11] = "lexus"
+answers[12] = "mercedes benz"
+answers[13] = "chevrolet"
+answers[14] = "acura"
+answers[15] = "pontiac"
+answers[16] = "buick"
+answers[17] = "hyundai"
+answers[18] = "dodge"
+answers[19] = "oldsmobile"
+answers[20] = "saturn"
+answers[21] = "chrysler"
+answers[22] = "mercury"
+answers[23] = "corvette"
+answers[24] = "suzuki"
+answers[25] = "lincoln"
+
+
+
+For i = 1 To 16
+  GraphicsWindow.Clear()
+  Shapes.AddImage(logos[i])
+  GuessAgain:
+  guess = MessageBox.AskForInput("What is your guess?")
+
+  If Text.ConvertToLowerCase(guess) = answers[i] Then
+    MessageBox.ShowMessage("Correct!")
+  Else
+    MessageBox.ShowMessage("Incorrect!")
+    Goto GuessAgain
+  EndIf
+EndFor
+
+  
+  EndProgram:
+
+

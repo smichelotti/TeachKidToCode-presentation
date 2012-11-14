@@ -1,0 +1,11 @@
+Turtle.Show()
+Turtle.Speed = 9
+GraphicsWindow.PenColor = "red"
+GraphicsWindow.PenWidth = 25
+Turtle.Move(100)
+Turtle.TurnLeft()
+Turtle.Move(100)
+Turtle.TurnLeft()
+Turtle.Move(100)
+Turtle.TurnLeft()
+Turtle.Move(100)

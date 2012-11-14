@@ -1,0 +1,34 @@
+Tortoise.SetSpeed(10)
+trtispenwidth = 1
+   
+CreateColorPalette()
+DrawPentagon()
+
+Sub CreateColorPalette
+  ColorWheel.AddColor("SteelBlue")
+  ColorWheel.AddColor("Orchid")
+  ColorWheel.AddColor("SlateBlue")
+  ColorWheel.AddColor("Teal")
+  ColorWheel.AddColor("Indigo")
+EndSub
+
+Sub DrawPentagon
+  For i = 1 To 250
+    AdjustPen()
+    Tortoise.Move(i)
+    Tortoise.Turn(360/5)
+    Tortoise.Turn(1)
+  EndFor
+EndSub
+
+Sub AdjustPen
+  Tortoise.SetPenColor(ColorWheel.GetNextColor())
+  trtispenwidth = trtispenwidth + 1
+  If trtispenwidth > 4 Then
+    trtispenwidth = 1
+  EndIf
+  Tortoise.SetPenWidth(trtispenwidth)
+EndSub
+
+
+  

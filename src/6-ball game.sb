@@ -1,0 +1,90 @@
+gh = 500
+gw = 700
+GraphicsWindow.Width = gw
+GraphicsWindow.Height = gh
+GraphicsWindow.Top = 10
+GraphicsWindow.Left = 10
+padsize = 10
+padlength = 300
+ballsize = 20
+score = 0
+GraphicsWindow.Clear()
+GraphicsWindow.BackgroundColor = "white"
+GraphicsWindow.PenColor = "magenta"
+GraphicsWindow.BrushColor = "green"
+
+paddleBottom = Shapes.AddRectangle(padlength, padsize)
+paddleTop = Shapes.AddRectangle(padlength, padsize)
+paddleLeft = Shapes.AddRectangle(padsize, padlength)
+paddleRight = Shapes.AddRectangle(padsize, padlength)
+
+GraphicsWindow.MouseMove = OnMouseMove
+
+GraphicsWindow.BrushColor = "red"
+
+ball = Shapes.AddEllipse(ballsize, ballsize)
+' set starting position before entering loop
+start:
+x = 100
+y = 100
+deltax = 1
+deltay = 1
+
+ballloop:
+x = x + deltax
+y = y + deltay
+
+' check for paddle hits
+
+bottomHitPoint = gh - ballsize - padsize
+rightHitPoint = gw - ballsize - padsize
+topHitPoint =  padsize
+leftHitPoint = padsize
+randomDirecton = Math.GetRandomNumber(3) - 3
+
+If y >= bottomHitPoint And x >= GraphicsWindow.MouseX And x <= GraphicsWindow.MouseX + padlength Then
+  deltay = deltay * -1
+  deltax = randomDirecton
+  PaddleHit()
+Elseif x >= rightHitPoint And y >= GraphicsWindow.MouseY And y <= GraphicsWindow.MouseY + padlength then
+  deltax = deltax * -1
+  deltay = randomDirecton
+  PaddleHit()
+Elseif y <= topHitPoint And x >= GraphicsWindow.MouseX And x <= GraphicsWindow.MouseX + padlength then
+  deltay = deltay * -1
+  deltax = randomDirecton
+  PaddleHit()
+Elseif x <= leftHitPoint And y >= GraphicsWindow.MouseY And y <= GraphicsWindow.MouseY + padlength then
+  deltax = deltax * -1
+  deltay = randomDirecton
+  PaddleHit()
+Endif
+
+If (Mouse.IsLeftButtonDown) then 
+  Program.Delay(250)
+endif
+
+Shapes.Move(ball, x, y)
+GraphicsWindow.Title = "Your score is: " + score        'x + "," + y
+Program.Delay(5)
+
+If (x > 0 and x < gw and y > 0 and y < gh) then
+  Goto ballloop
+EndIf
+If score >= 7 Then
+  GraphicsWindow.ShowMessage("Your score is " + score , "You Win!") 
+Else
+  GraphicsWindow.ShowMessage("Your score is " + score , "You Lose")
+  Goto start
+Endif
+Sub OnMouseMove
+  Shapes.Move(paddleBottom, GraphicsWindow.MouseX, (gh-15))
+  Shapes.Move(paddleTop, GraphicsWindow.MouseX, 1)
+  Shapes.Move(paddleLeft, 1, GraphicsWindow.MouseY)
+  Shapes.Move(paddleRight, (gw-15), GraphicsWindow.MouseY)
+EndSub
+
+Sub PaddleHit
+  Sound.PlayClick()
+  score = score + 1
+EndSub
